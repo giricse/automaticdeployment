@@ -18,6 +18,13 @@ pipeline {
 	sh 'mvn install'
       }
     }
+    stage('ansible syntax check'){
+      steps{
+       echo 'to check ansible syntax check'
+       sh 'ansible-playbook javainstall.yml --syntax-check'
+       sh 'ansible-playbook tomcatinstall.yml --syntax-check'
+      }
+    }
 
   }
 }

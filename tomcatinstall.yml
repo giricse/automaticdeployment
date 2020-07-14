@@ -1,0 +1,37 @@
+- name: this is for web server
+  hosts: all_hosts
+ 
+  tasks:
+    -  name: check tomcat derver dir
+       stat:
+         path: /usr/share/tomcat
+       register: tomcat_dir
+
+    -  name: display details
+       debug:
+         var: tomcat_dir
+
+    -  name: Tomcat server installed
+       debug:
+         msg: tomcat server installed. skip installing in next task
+       when: tomcat_dir.stat.exists == true
+
+    -  name: tomcat server NOT installed
+       debug:
+         msg: tomcat server is NOT installed. Install in next task
+       when: tomcat_dir.stat.exists == false
+
+    -  name: install tomcat server
+       yum:
+         name: tomcat
+         state: installed
+       when: tomcat_dir.stat.exists == false
+
+    -  name: start tomcat server
+       service:
+         name: tomcat
+         state: started
+       when: tomcat_dir.stat.exists == true
+         owner: root
+         group: root
+      

@@ -1,30 +1,20 @@
 pipeline {
-  agent any
   tools {
     jdk 'jdk1.8'
     maven 'maven3'
-  }
-  stages{
-    stage('git pull'){
-      steps{
-         echo 'this stage is for pull repo'
+   }
+   stages {
+     stage('git pull') {
+       steps {
+         echo 'Pulling from git repo'
 	 git 'https://github.com/giricse/automaticdeployment.git'
       }
     }
-    stage('mvn install'){
-      steps{
-	echo ' maven clean & install'
-	sh 'mvn clean'
-	sh 'mvn install'
+     stage('Maven Install'){
+       steps {
+         mvn clean
+	 mvn install
       }
     }
-    stage('ansible syntax check'){
-      steps{
-       echo 'to check ansible syntax check'
-       sh 'ansible-playbook javainstall.yml --syntax-check'
-       sh 'ansible-playbook tomcatinstall.yml --syntax-check'
-      }
-    }
-
   }
 }

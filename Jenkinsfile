@@ -22,7 +22,6 @@ pipeline {
       steps{
        echo 'to check ansible syntax check'
        sh 'ansible-playbook javainstall.yml --syntax-check'
-       sh 'ansible-playbook tomcatinstall.yml --syntax-check'
       }
     }
 

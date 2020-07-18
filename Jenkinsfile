@@ -8,7 +8,7 @@ pipeline {
     stage('git pull'){
       steps{
          echo 'this stage is for pull repo'
-	 git 'https://gitlab.com/jagarlamudirajesh34/ansible1.git'
+	 git 'https://github.com/giricse/automaticdeployment.git'
       }
     }
     stage('mvn install'){

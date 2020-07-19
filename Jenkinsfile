@@ -31,5 +31,6 @@ pipeline {
 		    sh 'ansible-playbook javainstall.yml'
 		    sh 'ansible-playbook tomcatinstall.yml'
 }
+    }
   }
 }

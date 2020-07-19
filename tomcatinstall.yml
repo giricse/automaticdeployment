@@ -26,8 +26,3 @@
          name: tomcat
          state: installed
        when: tomcat_dir.stat.exists == false
-       
-     - name: start tomcat server
-       service:
-          name: tomcat
-          state: started

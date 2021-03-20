@@ -1,7 +1,1 @@
 This is added to test pull operation
-<<<<<<< HEAD
-
-This line is added in local
-=======
-This line is added through GUI
->>>>>>> b655c13e7a542b1a8fdf76073807a0e0f2bd5950

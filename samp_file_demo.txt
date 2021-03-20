@@ -1,7 +1,1 @@
-<<<<<<< HEAD
 This is added to test pull operation
-
-adding changhes
-=======
-This is added to test pull operations
->>>>>>> 05ac19e171eaff85cddbd63a0fb40841e8b1b3e5
